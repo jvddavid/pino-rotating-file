@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:jvddavid/pino-rotating-file.git"
+    "url": "git+ssh://git@github.com/jvddavid/pino-rotating-file.git"
   },
   "bugs": {
     "url": "https://github.com/jvddavid/pino-rotating-file/issues"
