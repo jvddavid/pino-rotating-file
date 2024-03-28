@@ -1,0 +1,75 @@
+{
+  "name": "@jvddavid/pino-rotating-file",
+  "type": "module",
+  "module": "dist/index.js",
+  "main": "dist/index.cjs",
+  "types": "types/index.d.ts",
+  "author": {
+    "name": "João Victor Davi de Oliveira",
+    "email": "j.victordavid2@gmail.com",
+    "url": "https://github.com/jvddavid/pino-rotating-file"
+  },
+  "license": "MIT",
+  "version": "1.0.0",
+  "private": false,
+  "description": "A transport for pino that writes logs to rotating files",
+  "keywords": [
+    "pino-rotating-file",
+    "pino",
+    "rotating",
+    "file",
+    "log",
+    "logger",
+    "transport",
+    "folder",
+    "rotate",
+    "node",
+    "nodejs",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jvddavid/pino-rotating-file.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jvddavid/pino-rotating-file/issues"
+  },
+  "homepage": "https://github.com/jvddavid/pino-rotating-file",
+  "scripts": {
+    "build:types": "tsc -p tsconfig.types.json && resolve-tspaths -p tsconfig.types.json",
+    "build:esm": "bun run scripts/build.esm.ts",
+    "build:cjs": "bun run scripts/build.cjs.ts",
+    "build": "bun build:types && bun build:esm && bun build:cjs",
+    "test": "bun test",
+    "lint": "biome lint --apply .",
+    "prepublish": "bun build && bun test"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "node": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./types": "./types"
+  },
+  "dependencies": {
+    "pino-abstract-transport": "^1.1.0",
+    "sonic-boom": "^3.8.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.3",
+    "@jvddavid/pino-rotating-file": "file:./",
+    "@types/bun": "latest",
+    "bun": "~1",
+    "esbuild": "^0.20.2",
+    "pino": "^8.19.0",
+    "resolve-tspaths": "^0.8.18",
+    "typescript": "^5.4.3"
+  }
+}
