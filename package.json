@@ -10,7 +10,7 @@
     "url": "https://github.com/jvddavid/pino-rotating-file"
   },
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A transport for pino that writes logs to rotating files",
   "keywords": [
     "pino-rotating-file",
