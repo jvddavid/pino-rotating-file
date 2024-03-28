@@ -10,8 +10,7 @@
     "url": "https://github.com/jvddavid/pino-rotating-file"
   },
   "license": "MIT",
-  "version": "1.0.0",
-  "private": false,
+  "version": "1.0.1",
   "description": "A transport for pino that writes logs to rotating files",
   "keywords": [
     "pino-rotating-file",
@@ -42,7 +41,7 @@
     "build": "bun build:types && bun build:esm && bun build:cjs",
     "test": "bun test",
     "lint": "biome lint --apply .",
-    "prepublish": "bun build && bun test"
+    "prepublishOnly": "bun run build && bun test"
   },
   "files": [
     "dist",
