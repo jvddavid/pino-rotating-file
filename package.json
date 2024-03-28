@@ -41,7 +41,7 @@
     "build": "bun build:types && bun build:esm && bun build:cjs",
     "test": "bun test",
     "lint": "biome lint --apply .",
-    "prepublishOnly": "bun run build && bun test"
+    "prepublishOnly": "bun run build && sleep 1 && bun test"
   },
   "files": [
     "dist",
