@@ -15,6 +15,9 @@
       "all": true,
       "nursery": {
         "recommended": true
+      },
+      "style": {
+        "noDefaultExport": "off"
       }
     }
   },

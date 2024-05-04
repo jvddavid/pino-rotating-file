@@ -1,5 +1,6 @@
 import { build } from 'esbuild'
 import { resolve } from 'node:path'
+import pkg from '../package.json'
 
 const entryPoint = 'src/index.ts'
 
@@ -7,6 +8,7 @@ async function main() {
   const result = await build({
     entryPoints: [entryPoint],
     bundle: true,
+    external: Object.keys(pkg.dependencies),
     tsconfig: 'tsconfig.json',
     platform: 'node',
     format: 'cjs',

@@ -1,5 +1,6 @@
 import { build } from 'bun'
 import { resolve } from 'node:path'
+import pkg from '../package.json'
 
 const entryPoint = 'index.ts'
 
@@ -11,8 +12,13 @@ async function main() {
     root: resolve(__dirname, '..', 'src'),
     outdir: 'dist',
     sourcemap: 'none',
-    publicPath: '/',
-    target: 'node'
+    target: 'node',
+    external: Object.keys(pkg.dependencies),
+    conditions: 'production',
+    define: {
+      'process.env.NODE_ENV': '"production"'
+    },
+    splitting: true
   })
   return result
 }
