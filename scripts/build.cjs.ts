@@ -2,18 +2,16 @@ import { build } from 'esbuild'
 import { resolve } from 'node:path'
 import pkg from '../package.json'
 
-const entryPoint = 'src/index.ts'
-
 async function main() {
   const result = await build({
-    entryPoints: [entryPoint],
+    entryPoints: ['src/index.ts'],
     bundle: true,
-    external: Object.keys(pkg.dependencies),
+    external: [...Object.keys(pkg.dependencies), 'node:fs'],
     tsconfig: 'tsconfig.json',
     platform: 'node',
     format: 'cjs',
     minify: true,
-    outfile: 'dist/index.cjs',
+    outfile: 'dist/index.js',
     absWorkingDir: resolve(__dirname, '..'),
     allowOverwrite: true
   })

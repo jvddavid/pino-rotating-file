@@ -1,24 +1,27 @@
 import { build } from 'bun'
-import { resolve } from 'node:path'
 import pkg from '../package.json'
-
-const entryPoint = 'index.ts'
 
 async function main() {
   const result = await build({
-    entrypoints: [entryPoint],
-    format: 'esm',
-    minify: true,
-    root: resolve(__dirname, '..', 'src'),
-    outdir: 'dist',
-    sourcemap: 'none',
-    target: 'node',
-    external: Object.keys(pkg.dependencies),
-    conditions: 'production',
+    entrypoints: ['index.ts'],
+    external: [...Object.keys(pkg.dependencies), 'node:fs'],
     define: {
       'process.env.NODE_ENV': '"production"'
     },
-    splitting: true
+    format: 'esm',
+    conditions: ['production'],
+    publicPath: undefined,
+    outdir: 'dist',
+    minify: true,
+    root: 'src',
+    splitting: true,
+    target: 'node',
+    sourcemap: 'none',
+    naming: {
+      entry: '[dir]/[name].m[ext]',
+      chunk: '[name]-[hash].[ext]',
+      asset: '[name]-[hash].[ext]'
+    }
   })
   return result
 }
