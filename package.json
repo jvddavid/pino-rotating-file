@@ -1,7 +1,7 @@
 {
   "name": "@jvddavid/pino-rotating-file",
   "license": "MIT",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A transport for pino that writes logs to rotating files",
   "keywords": [
     "pino-rotating-file",
