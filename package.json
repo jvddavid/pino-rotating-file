@@ -63,6 +63,7 @@
     "tslib": "^2.6.3"
   },
   "dependencies": {
+    "close-with-grace": "^2.1.0",
     "pino-abstract-transport": "^1.2.0",
     "sonic-boom": "^4.0.1"
   },
