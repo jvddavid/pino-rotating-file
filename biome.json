@@ -1,17 +1,14 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "$schema": "https://biomejs.dev/schemas/2.3.5/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "files": {
     "maxSize": 134217728,
     "ignoreUnknown": true,
-    "ignore": ["**/node_modules/**", "node_modules"]
+    "includes": ["**", "!**/node_modules", "!**/node_modules"]
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "all": true,
       "nursery": {
         "recommended": true
       },

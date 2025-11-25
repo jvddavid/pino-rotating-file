@@ -1,4 +1,3 @@
-import { describe, expect, it } from '@jest/globals'
 import { existsSync, readFileSync } from 'node:fs'
 import { rmdir } from 'node:fs/promises'
 import logger from 'pino'

@@ -1,8 +1,13 @@
 {
   "name": "@jvddavid/pino-rotating-file",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "A transport for pino that writes logs to rotating files",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
   "keywords": [
     "pino-rotating-file",
     "pino",
@@ -28,7 +33,7 @@
     "tsconfig.json"
   ],
   "author": {
-    "name": "João Victor Davi de Oliveira",
+    "name": "Joao Victor Davi",
     "email": "j.victordavid2@gmail.com",
     "url": "https://github.com/jvddavid/pino-rotating-file"
   },
@@ -41,31 +46,31 @@
   },
   "homepage": "https://github.com/jvddavid/pino-rotating-file",
   "engines": {
-    "node": ">=18",
-    "npm": ">=8"
+    "node": ">=22",
+    "npm": ">=11"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
+    "@biomejs/biome": "^2.3.7",
+    "@jvddavid/pino-rotating-file": "file:",
     "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^11.1.6",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.14.10",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.1",
     "dts-bundle-generator": "^9.5.1",
-    "jest": "^29.7.0",
-    "pino": "^9.2.0",
-    "rollup": "^4.18.1",
-    "ts-jest": "^29.2.2",
-    "tsx": "^4.16.2",
-    "@jvddavid/pino-rotating-file": "file:./"
+    "jest": "^30.2.0",
+    "pino": "^10.1.0",
+    "rollup": "^4.53.3",
+    "ts-jest": "^29.4.5",
+    "tsx": "^4.20.6"
   },
   "peerDependencies": {
-    "typescript": "^5.5.3",
-    "tslib": "^2.6.3"
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3"
   },
   "dependencies": {
-    "close-with-grace": "^2.1.0",
-    "pino-abstract-transport": "^1.2.0",
-    "sonic-boom": "^4.0.1"
+    "close-with-grace": "^2.3.0",
+    "pino-abstract-transport": "^3.0.0",
+    "sonic-boom": "^4.2.0"
   },
   "exports": {
     ".": {
@@ -76,6 +81,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run lint && npm run build && npm run test",
+    "type:check": "tsc --noEmit",
     "build:types": "dts-bundle-generator --project ./tsconfig.json ./src/index.ts -o ./dist/index.d.ts",
     "build:rollup": "rollup --config rollup.config.ts --configPlugin typescript",
     "build": "npm run build:types && npm run build:rollup",
@@ -83,9 +89,15 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "dev": "tsx --watch src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "release:patch": "npm run version:patch && git push --follow-tags",
+    "release:minor": "npm run version:minor && git push --follow-tags",
+    "release:major": "npm run version:major && git push --follow-tags",
+    "publish:github": "pnpm publish --registry https://npm.pkg.github.com",
+    "login:github": "npm login --registry=https://npm.pkg.github.com"
   },
-  "trustedDependencies": [
-    "@biomejs/biome"
-  ]
+  "packageManager": "pnpm@10.22.0"
 }
