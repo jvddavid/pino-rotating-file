@@ -8,13 +8,20 @@ export default defineConfig({
     {
       file: 'dist/index.cjs',
       format: 'cjs',
-      compact: true
+      compact: true,
     },
     {
       file: 'dist/index.js',
       format: 'esm',
       compact: true
     }
+  ],
+  external: [
+    'close-with-grace',
+    'pino-abstract-transport',
+    'sonic-boom',
+    'node:events',
+    'node:path',
   ],
   plugins: [
     typescript({
