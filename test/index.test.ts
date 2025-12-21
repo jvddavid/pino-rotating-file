@@ -26,7 +26,8 @@ describe('Pino rotating file', () => {
     } else {
       throw new Error('File not found')
     }
-    await rmdir('logs')
+    // @ts-expect-error
+    await rmdir('logs', { recursive: true })
     const fileExists1 = existsSync('logs/log-001.log')
     expect(fileExists1).toBe(false)
   })
