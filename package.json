@@ -5,8 +5,8 @@
   "description": "A transport for pino that writes logs to rotating files",
   "private": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "keywords": [
     "pino-rotating-file",
